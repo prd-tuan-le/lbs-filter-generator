@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+
+    <meta charset='UTF-8'>
+    <title>Label Studio Filter Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 alert alert-info" role="alert">
+                <h3>How it works?</h3>
+                <ol>
+                    <li>Enter multiple lines of task's ids here and it will be converted to filter values on the next box.</li>
+                    <li>Change the quantity box to a number represents how many tasks you want to be displayed for each filter.
+                    </li>
+                    <li>Press the "GO!" button to generate filter values on the second box.</li>
+                    <li>Copy the result on the second box, each generated row is a value for the filter.
+                        <br />DO NOT COPY ALL OF THE GENERATED VALUES!
+                    <li>Paste it into your (or reviewer's) project' filter.
+                        <br />Create filter as the following screenshot:
+                        <br /><img src="images/create-filter-0.png" alt="Create filter" />
+                        <br /><strong>Note</strong>:
+                        <span style="background-color:black; color:#fff">id_1|id_3|id_3</span> is one row you copy on the next box.
+                    </li>
+                    <li>Cycle through the filtered tasks and do what you want</li>
+                </ol>
+                >>> <a href="videos/how-to-use-the-generator.mp4">Video tutorial</a> <<<
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12" style="background-color:lavender;  min-height: 30rem;">
+                <label for="quantity">Quantity (between 2 and 100):</label>
+                <input type="number" id="quantity" name="quantity" min="2" max="100" value="10" step="5">
+                <label for="input">Error ids:</label>
+                <textarea id="input" class="u-full-width" placeholder="Input task ids here, one per each row...">
+acd1422ba3
+5703f98501
+0821bfa622
+1c6369f6ae
+9f48fb3841
+d58d55318a
+c51579d4df
+                </textarea>
+            </div>
+
+            <div class="col-md-2 col-sm-2 col-xs-12 align-middle" style="text-align: center;">
+                <input id="go" class="button-primary" type="submit" value="Go!" style="margin-top:15px;">
+                <input id="clear" class="button-danger" type="submit" value="Clear" style="margin-top:15px; background-color: coral; color: #fff;">
+            </div>
+
+            <div class="col-md-7 col-sm-7 col-xs-12" style="background-color:lavender; min-height: 30rem;">
+                <label>Filters:</label>
+                (each row is an independent filter value)
+                <pre id="output">
+acd1422ba3|5703f98501
+0821bfa622|1c6369f6ae
+9f48fb3841|d58d55318a
+c51579d4df
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="function.js"></script>
+
+</body>
+
+</html>
